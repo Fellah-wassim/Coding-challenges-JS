@@ -46,3 +46,14 @@ const [gk, ...fieldplayers] = player1;
 // 3
 const allPlayers = [...player1, ...player2];
 // 5
+const {
+  odds: { team1, x: draw, team2 },
+} = game;
+// 6
+const printGoals = function (...players) {
+  console.log(`${players.length} goals where scored today`);
+};
+printGoals(...game.scored);
+// 7
+team1 < team2 && console.log('team 1 are more likely to win');
+team1 < team2 || console.log('team 2 are more likely to win');
