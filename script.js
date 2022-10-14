@@ -98,3 +98,9 @@ let time = [...gameEvents.keys()].pop();
 console.log(
   `An event happened, on average every ${time / gameEvents.size} minute `
 );
+//3-4
+for (let [key, value] of gameEvents) {
+  console.log(
+    `${key < 45 ? '[First Half]' : '[Second Half]'} ${key}: ${value}`
+  );
+}
