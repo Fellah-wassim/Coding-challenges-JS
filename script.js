@@ -92,3 +92,9 @@ console.log(events);
 //3-2
 gameEvents.delete(64);
 console.log(gameEvents);
+//3-3
+//take the last element of the game events with making the keys to a table then pop the last key to see the time
+let time = [...gameEvents.keys()].pop();
+console.log(
+  `An event happened, on average every ${time / gameEvents.size} minute `
+);
