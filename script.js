@@ -73,3 +73,20 @@ for (let [team, value] of Object.entries(game.odds)) {
   let str = team === 'x' ? 'Draw' : `victory ${game[team]}`;
   console.log(`Odd of ${str} ${value}`);
 }
+const gameEvents = new Map([
+  [17, '⚽️ GOAL'],
+  [36, '🔁 Substitution'],
+  [47, '⚽️ GOAL'],
+  [61, '🔁 Substitution'],
+  [64, '🔶 Yellow card'],
+  [69, '🔴 Red card'],
+  [70, '🔁 Substitution'],
+  [72, '🔁 Substitution'],
+  [76, '⚽️ GOAL'],
+  [80, '⚽️ GOAL'],
+  [92, '🔶 Yellow card'],
+]);
+//3-1
+let events = new Set(gameEvents.values());
+let arr = [...events];
+console.log(arr);
