@@ -88,4 +88,7 @@ const gameEvents = new Map([
 ]);
 //3-1
 let events = [...new Set(gameEvents.values())];
-console.log(arr);
+console.log(events);
+//3-2
+gameEvents.delete(64);
+console.log(gameEvents);
