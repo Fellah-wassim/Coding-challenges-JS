@@ -87,6 +87,5 @@ const gameEvents = new Map([
   [92, '🔶 Yellow card'],
 ]);
 //3-1
-let events = new Set(gameEvents.values());
-let arr = [...events];
+let events = [...new Set(gameEvents.values())];
 console.log(arr);
