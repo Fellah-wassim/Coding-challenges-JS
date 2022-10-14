@@ -68,5 +68,8 @@ for (let odd of Object.values(game.odds)) {
 }
 average /= Object.values(game.odds).length;
 console.log(average);
-// //2-3
-// for (let [])
+//2-3
+for (let [team, value] of Object.entries(game.odds)) {
+  let str = team === 'x' ? 'Draw' : `victory ${game[team]}`;
+  console.log(`Odd of ${str} ${value}`);
+}
