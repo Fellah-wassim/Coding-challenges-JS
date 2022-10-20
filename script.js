@@ -148,4 +148,24 @@ const flights =
 //              Arrival from BRU to FAO (11h45)
 //   🔴 Delayed Arrival from HEL to FAO (12h05)
 //            Departure from FAO to LIS (12h30)
-const table = flights.split('+');
+
+const phrases = flights.split('+');
+let arr = [];
+for (const [i, ph] of phrases.entries()) {
+  arr[i] = ph.replace(ph[0], '').replaceAll('_', ' ').split(';');
+}
+let length = 0;
+for (const [i, el] of arr.entries()) {
+  let str;
+  if (i % 2 == 0) {
+    str = `🔴 ${el[0]} from ${el[1].slice(0, 3).toUpperCase()} to ${el[2]
+      .slice(0, 3)
+      .toUpperCase()} (${el[3]})`;
+  } else {
+    str = `${el[0]} from ${el[1].slice(0, 3).toUpperCase()} to ${el[2]
+      .slice(0, 3)
+      .toUpperCase()} (${el[3]})`;
+  }
+  length = length < str.length ? str.length : length;
+  console.log(str.padStart(length, ' '));
+}
