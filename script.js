@@ -1,4 +1,10 @@
 'use strict';
+const greet = greeting =>
+  function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+greet('Hey')('wassim');
+
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
