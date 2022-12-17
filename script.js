@@ -175,3 +175,10 @@ for (const [i, el] of arr.entries()) {
   length = length < str.length ? str.length : length;
   console.log(str.padStart(length, ' '));
 }
+
+//new challenge is here
+const addTaxrate = function (rate) {
+  return function addTaxValue(value) {
+    return value * rate + value;
+  };
+};
