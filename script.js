@@ -211,3 +211,8 @@ const poll = {
 document
   .querySelector('.poll')
   .addEventListener('click', poll.registerNewAnswer.bind(poll));
+const displayResultAR = poll.displayResult.bind(
+  { answers: [5, 2, 3] },
+  'string'
+);
+displayResultAR();
