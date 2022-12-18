@@ -199,6 +199,13 @@ const poll = {
     typeof answer === 'number' &&
       answer < this.options.length &&
       this.answers[answer]++;
+    this.displayResult();
+    this.displayResult('string');
+  },
+  displayResult(type = 'array') {
+    if (type === 'array') console.log(this.answers);
+    else if (type === 'string')
+      console.log(`Poll results are ${this.answers.join(', ')}`);
   },
 };
 document
