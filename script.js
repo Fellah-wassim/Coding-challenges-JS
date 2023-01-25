@@ -223,3 +223,19 @@ displayResultAR();
     header.style.color = 'blue';
   });
 })();
+
+const checkDogs = function (arrJulia, arrKate) {
+  let arrJuliaCopy = arrJulia.slice(1, -2);
+  let arrBoth = arrJuliaCopy.concat(arrKate);
+  arrBoth.forEach(function (age, index) {
+    if (age >= 3) {
+      console.log(
+        `Dog number ${index + 1} is an adult, and is ${age} years old`
+      );
+    } else {
+      console.log(`Dog number ${index + 1} is still a poppy`);
+    }
+  });
+  console.log(arrBoth);
+};
+checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
