@@ -249,3 +249,10 @@ const calcAverageHumanAge = function (ages) {
   );
   return averageHumanAge;
 };
+
+const calcAverageHumanAgeInChaining = function (ages) {
+  return ages
+    .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, _, arr) => acc + age / arr.length, 0);
+};
