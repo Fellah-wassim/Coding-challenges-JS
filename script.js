@@ -239,3 +239,13 @@ const checkDogs = function (arrJulia, arrKate) {
   console.log(arrBoth);
 };
 checkDogs([3, 5, 2, 12, 7], [4, 1, 15, 8, 3]);
+
+const calcAverageHumanAge = function (ages) {
+  const humanAges = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
+  const AdultHumanAges = humanAges.filter(age => age >= 18);
+  const averageHumanAge = AdultHumanAges.reduce(
+    (acc, age, _, arr) => acc + age / arr.length,
+    0
+  );
+  return averageHumanAge;
+};
