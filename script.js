@@ -256,3 +256,18 @@ const calcAverageHumanAgeInChaining = function (ages) {
     .filter(age => age >= 18)
     .reduce((acc, age, _, arr) => acc + age / arr.length, 0);
 };
+
+const convertTitleCase = function (title) {
+  const exceptions = ['a', 'an', 'the', 'but', 'or', 'on', 'in', 'with', 'and'];
+  const titleCase = title
+    .toLowerCase()
+    .split(' ')
+    .map(word => {
+      if (exceptions.includes(word)) return word;
+      return word.replace(word[0], word[0].toUpperCase());
+    })
+    .join(' ');
+  return titleCase;
+};
+
+console.log(convertTitleCase('this is a nice title'));
