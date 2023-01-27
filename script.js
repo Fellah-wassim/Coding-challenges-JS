@@ -271,3 +271,66 @@ const convertTitleCase = function (title) {
 };
 
 console.log(convertTitleCase('this is a nice title'));
+
+///////////////////////////////////////
+// Coding Challenge #4
+
+/* 
+Julia and Kate are still studying dogs, and this time they are studying if dogs are eating too much or too little.
+Eating too much means the dog's current food portion is larger than the recommended portion, and eating too little is the opposite.
+Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion (see hint).
+
+6. Log to the console whether there is any dog eating an OKAY amount of food (just true or false)
+7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
+8. Create a shallow copy of the dogs array and sort it by recommended food portion in an ascending order (keep in mind that the portions are inside the array's objects)
+HINT 1: Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
+HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
+TEST DATA:
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] }
+];
+GOOD LUCK 😀
+*/
+
+const dogs = [
+  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
+  { weight: 8, curFood: 200, owners: ['Matilda'] },
+  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
+  { weight: 32, curFood: 340, owners: ['Michael'] },
+];
+
+dogs.forEach(function (dog, i) {
+  dog.recommendedFoodPortion = Math.trunc(dog.weight ** 0.75 * 28);
+});
+
+const dogSarah = dogs.find(dog => {
+  return dog.owners.includes('Sarah');
+});
+console.log(
+  `Sarah's dogs is eating ${
+    dogSarah.curFood > dogSarah.recommendedFoodPortion
+      ? 'too much'
+      : 'too little'
+  } food`
+);
+
+const ownersEatTooMuch = dogs
+  .filter(dog => {
+    return dog.curFood > dog.recommendedFoodPortion;
+  })
+  .map(dog => dog.owners)
+  .flat();
+const ownersEatTooLittle = dogs
+  .filter(dog => {
+    return dog.curFood < dog.recommendedFoodPortion;
+  })
+  .map(dog => dog.owners)
+  .flat();
+
+console.log(`${ownersEatTooMuch.join(' and ')} eat to much`);
+console.log(`${ownersEatTooLittle.join(' and ')} eat to much`);
+
+console.log(dogs.some(dog => dog.curFood === dog.recommendedFoodPortion));
