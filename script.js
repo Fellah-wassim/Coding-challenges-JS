@@ -45,28 +45,36 @@ const game = {
     team2: 6.5,
   },
 };
+
 // 1
 const [player1, player2] = game.players;
+
 // 2
 const [gk, ...fieldplayers] = player1;
+
 // 3
 const allPlayers = [...player1, ...player2];
+
 // 5
 const {
   odds: { team1, x: draw, team2 },
 } = game;
+
 // 6
 const printGoals = function (...players) {
   console.log(`${players.length} goals where scored today`);
 };
 printGoals(...game.scored);
+
 // 7
 team1 < team2 && console.log('team 1 are more likely to win');
 team1 < team2 || console.log('team 2 are more likely to win');
+
 // 2-1
 for (let [i, scoredPlayer] of game.scored.entries()) {
   console.log(`Goal ${i + 1}: ${scoredPlayer}`);
 }
+
 // 2-2
 let average = 0;
 for (let odd of Object.values(game.odds)) {
@@ -74,6 +82,7 @@ for (let odd of Object.values(game.odds)) {
 }
 average /= Object.values(game.odds).length;
 console.log(average);
+
 //2-3
 for (let [team, value] of Object.entries(game.odds)) {
   let str = team === 'x' ? 'Draw' : `victory ${game[team]}`;
@@ -92,18 +101,22 @@ const gameEvents = new Map([
   [80, '⚽️ GOAL'],
   [92, '🔶 Yellow card'],
 ]);
+
 //3-1
 let events = [...new Set(gameEvents.values())];
 console.log(events);
+
 //3-2
 gameEvents.delete(64);
 console.log(gameEvents);
+
 //3-3
 //take the last element of the game events with making the keys to a table then pop the last key to see the time
 let time = [...gameEvents.keys()].pop();
 console.log(
   `An event happened, on average every ${time / gameEvents.size} minute `
 );
+
 //3-4
 for (let [key, value] of gameEvents) {
   console.log(
@@ -147,6 +160,7 @@ document.querySelector('button').addEventListener('click', function () {
     console.log(`${rows[i].padEnd(20, ' ') + '✅'.repeat(i + 1)}`);
   }
 });
+
 const flights =
   '_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30';
 
@@ -272,29 +286,6 @@ const convertTitleCase = function (title) {
 
 console.log(convertTitleCase('this is a nice title'));
 
-///////////////////////////////////////
-// Coding Challenge #4
-
-/* 
-Julia and Kate are still studying dogs, and this time they are studying if dogs are eating too much or too little.
-Eating too much means the dog's current food portion is larger than the recommended portion, and eating too little is the opposite.
-Eating an okay amount means the dog's current food portion is within a range 10% above and 10% below the recommended portion (see hint).
-
-6. Log to the console whether there is any dog eating an OKAY amount of food (just true or false)
-7. Create an array containing the dogs that are eating an OKAY amount of food (try to reuse the condition used in 6.)
-8. Create a shallow copy of the dogs array and sort it by recommended food portion in an ascending order (keep in mind that the portions are inside the array's objects)
-HINT 1: Use many different tools to solve these challenges, you can use the summary lecture to choose between them 😉
-HINT 2: Being within a range 10% above and below the recommended portion means: current > (recommended * 0.90) && current < (recommended * 1.10). Basically, the current portion should be between 90% and 110% of the recommended portion.
-TEST DATA:
-const dogs = [
-  { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
-  { weight: 8, curFood: 200, owners: ['Matilda'] },
-  { weight: 13, curFood: 275, owners: ['Sarah', 'John'] },
-  { weight: 32, curFood: 340, owners: ['Michael'] }
-];
-GOOD LUCK 😀
-*/
-
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
   { weight: 8, curFood: 200, owners: ['Matilda'] },
@@ -323,6 +314,7 @@ const ownersEatTooMuch = dogs
   })
   .map(dog => dog.owners)
   .flat();
+
 const ownersEatTooLittle = dogs
   .filter(dog => {
     return dog.curFood < dog.recommendedFoodPortion;
