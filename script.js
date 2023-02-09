@@ -326,3 +326,10 @@ console.log(`${ownersEatTooMuch.join(' and ')} eat to much`);
 console.log(`${ownersEatTooLittle.join(' and ')} eat to much`);
 
 console.log(dogs.some(dog => dog.curFood === dog.recommendedFoodPortion));
+
+const user = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+const userObj = new user('wassim', '2003');
+console.log(userObj instanceof user);
