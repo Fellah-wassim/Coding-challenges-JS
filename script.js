@@ -332,4 +332,8 @@ const user = function (firstName, birthYear) {
   this.birthYear = birthYear;
 };
 const userObj = new user('wassim', '2003');
-console.log(userObj instanceof user);
+
+user.prototype.calcAge = function () {
+  console.log(2023 - this.birthYear);
+};
+userObj.calcAge();
