@@ -351,23 +351,45 @@ DATA CAR 2: 'Mercedes' going at 95 km/h
 GOOD LUCK 😀
 */
 
-const Car = function (make, speed) {
-  this.speed = speed;
-  this.make = make;
-};
-Car.prototype.accelerate = function () {
-  this.speed = this.speed + 10;
-  console.log(this.speed);
-};
-Car.prototype.brake = function () {
-  this.speed = this.speed - 5;
-  console.log(this.speed);
-};
+// const Car = function (make, speed) {
+//   this.speed = speed;
+//   this.make = make;
+// };
+// Car.prototype.accelerate = function () {
+//   this.speed = this.speed + 10;
+//   console.log(this.speed);
+// };
+// Car.prototype.brake = function () {
+//   this.speed = this.speed - 5;
+//   console.log(this.speed);
+// };
 
-const BMW = new Car('BMW', 120);
-const Mercedes = new Car('Mercedes', 95);
+// const BMW = new Car('BMW', 120);
+// const Mercedes = new Car('Mercedes', 95);
 
-BMW.accelerate();
-BMW.accelerate();
-BMW.accelerate();
-BMW.brake();
+// BMW.accelerate();
+// BMW.accelerate();
+// BMW.accelerate();
+// BMW.brake();
+
+// coding challenge number 2
+class Car {
+  constructor(make, speed) {
+    this.speed = speed;
+    this.make = make;
+  }
+  accelerate() {
+    this.speed = this.speed + 10;
+    console.log(this.speed);
+  }
+  brake() {
+    this.speed = this.speed - 5;
+    console.log(this.speed);
+  }
+  get speedUs() {
+    return this.speed / 1.6;
+  }
+  set speedUs(speed) {
+    this.speed = speed * 1.6;
+  }
+}
