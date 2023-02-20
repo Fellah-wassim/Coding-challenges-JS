@@ -606,3 +606,30 @@ whereAmI(52.508, 13.381);
 //     currentImg.style.display = 'none';
 //   })
 //   .catch();
+
+// write a function that takes object id as a parameter
+//  then deletes it from a certain array of objects
+
+// const objects = [
+//   {
+//     id: '111',
+//     name: 'frontend',
+//   },
+//   {
+//     id: '421',
+//     name: 'backend',
+//   },
+//   {
+//     id: '754',
+//     name: 'full stack',
+//   },
+// ];
+
+// const deleteObject = function (objectID) {
+//   objects.forEach((obj, index) =>
+//     obj.id === objectID ? objects.splice(index, 1) : obj
+//   );
+// };
+
+// deleteObject('111');
+// console.log(objects);
